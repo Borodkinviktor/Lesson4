@@ -7,12 +7,13 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+//сделала Валерия Григорьева
 public class DesktopUI extends JFrame implements View {
 
-    private Label lCity;
-    private JTextArea answer, zero;
-    private TextField city;
-    private Button findInfo;
+    private JLabel lCity;
+    private JTextArea answer;
+    private JTextField city;
+    private JButton findInfo;
     private Presenter presenter;
 
     @Override
@@ -22,19 +23,23 @@ public class DesktopUI extends JFrame implements View {
 
     @Override
     public void start() {
-        setSize(400, 600);
-        lCity = new Label("город: ");
+        setSize(400, 400);
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        lCity = new JLabel("Город: ");
         answer = new JTextArea();
-        zero = new JTextArea();
-        findInfo = new Button("Узнать погоду");
-        city = new TextField();
-
-        setLayout(new GridLayout(3, 2));
+        findInfo = new JButton("Узнать погоду");
+        city = new JTextField();
+        setLayout(null);
         add(lCity);
         add(city);
-        add(answer);
-        add(zero);
         add(findInfo);
+        add(answer);
+        lCity.setBounds(20, 40, 50, 25);
+        city.setBounds(70, 45, 290, 20);
+        findInfo.setBounds(95, 80, 200, 50);
+        answer.setBounds(20, 140, 340, 160);
+
 
         findInfo.addActionListener(new ActionListener() {
             @Override
